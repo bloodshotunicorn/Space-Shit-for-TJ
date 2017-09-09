@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kepler Orbit Equation Solver</title>
+	</head>
+	<body>
+		<p>Semi-major Axis: <input type="text" id="sm_axis"></p>
+		<p>Eccentricity: <input type="text" id="eccent"></p>
+		<p>True Anomaly: <input type="text" id="anom"></p>
+		<p><button type="button" onclick="calculate()">Calculate</button></p>
+		<p id="result">Distance = </p>
+	</body>
+	<script>
+		function calculate () {
+			var sm_axis = parseFloat(document.getElementById("sm_axis").value);
+			var eccent = parseFloat(document.getElementById("eccent").value);
+			var anom = parseFloat(document.getElementById("anom").value);
+			console.log(sm_axis + " " + eccent + " " + anom);
+
+			var distance = ((sm_axis * (1 - (eccent * eccent))) / (1 + eccent * Math.cos(anom)))
+			console.log(distance)
+
+			var result_box = document.getElementById("result")
+			result_box.innerHTML = "Distance = " + distance
+		}
+	</script>
+</html>
